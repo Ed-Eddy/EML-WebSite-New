@@ -457,3 +457,322 @@ margin-top: 15px;
         padding: 30px 20px;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/* Base Styles */
+.content-section {
+    padding: 60px 0;
+    background-color: #f8f9fa;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 32px;
+    color: #2c3e50;
+}
+
+.features-container {
+    display: flex;
+    flex-wrap: wrap;
+    /*gap: 30px;*/
+    max-width: nonex;
+    margin: 0 auto;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    gap: 0; /* Remove gap to use full width */
+}
+
+.carousel-container{
+    /*flex: 1.5;  Give more space to carousel */
+    flex: 0 0 60%;
+    min-width: 60%; /* Minimum width percentage */
+}
+.blog-container {
+    /*flex: 1;*/
+    flex: 0 0 40%;
+    min-width: 35%; /* Minimum width percentage */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Carousel Styles */
+.image-carousel {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    height: 100%;
+    min-height: 300px; /* Ensure minimum height */
+}
+
+.carousel-slides {
+    position: relative;
+    width: 100%;
+    height: 500px; /* Default height for desktop */
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    z-index: 1;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+    z-index: 3;
+}
+
+.carousel-slide.next {
+    opacity: 0.7;
+    transform: translateX(20px);
+    z-index: 2;
+}
+
+.carousel-slide.prev {
+    opacity: 0.7;
+    transform: translateX(-20px);
+    z-index: 2;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #f0f0f0;
+}
+
+/* Carousel Controls - Fixed Positioning */
+.carousel-controls {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+    z-index: 4;
+    pointer-events: none; /* Allows clicks to pass through to buttons */
+}
+
+.carousel-prev, .carousel-next {
+    background: rgba(255,255,255,0.8);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    color: #2c3e50;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    pointer-events: auto; /* Re-enable clicks on buttons */
+    position: relative; /* Reset positioning */
+    margin: 0; /* Remove any default margins */
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .features-container {
+        flex-direction: column;
+    }
+    
+    .carousel-container {
+        width: 100%;
+        order: -1; /* Ensure carousel appears first on mobile */
+        margin-bottom: 20px;
+    }
+    
+    .carousel-slides {
+        height: 60vh; /* More reasonable mobile height */
+        max-height: 500px; /* Prevent becoming too tall */
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-slides {
+        height: 50vh; /* Smaller height for very small devices */
+    }
+    
+    .carousel-controls {
+        padding: 0 10px;
+    }
+    
+    .carousel-prev, .carousel-next {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
+    
+    .carousel-slide img {
+        object-fit: contain; /* Show full image on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-slides {
+        height: 45vh; /* Adjust for very small screens */
+    }
+    
+    .carousel-dots {
+        bottom: 10px;
+    }
+    
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Pyramid Layout Styles */
+.pyramid-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.pyramid-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.top-row {
+    margin-bottom: 0;
+}
+
+.bottom-row {
+    justify-content: center;
+}
+
+.benefit-card {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+    flex: 1;
+    min-width: 0; /* Allows text to wrap properly */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.benefit-card h4 {
+    font-size: 18px;
+    color: #2c3e50;
+    margin-bottom: 12px;
+}
+
+.benefit-card p {
+    color: #7f8c8d;
+    line-height: 1.5;
+    font-size: 15px;
+}
+
+.download-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.download-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+}
+
+.download-btn:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(52, 152, 219, 0.4);
+}
+
+/* Adjust the features container layout */
+.features-container {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.carousel-container {
+    flex: 1.5; /* Slightly larger than pyramid container */
+    min-width: 0;
+}
+
+.pyramid-container {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .features-container {
+        flex-direction: column;
+    }
+    
+    .pyramid-row {
+        flex-direction: column;
+    }
+    
+    .benefit-card {
+        width: 100%;
+    }
+}
